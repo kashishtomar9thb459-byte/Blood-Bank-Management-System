@@ -1,11 +1,43 @@
 # Blood Bank Management System
-### CSE Minor Project — Java Swing + MySQL (JDBC)
+### Modern Web Application (Vercel Ready) + Desktop Java Swing Reference
 
-A complete desktop application for managing blood bank operations: donors, blood
-stock, donations, and hospital blood requests — with a login-protected admin
-dashboard, full CRUD, live stock calculations, and validation throughout.
+A complete, production-ready application for managing blood bank operations: donors, blood stock, donations, and hospital blood requests — featuring an admin dashboard, full CRUD operations, live stock calculation guards, and input validation throughout.
 
 ---
+
+## ⚡ Web Application & Vercel Deployment
+
+This project includes a **fully responsive, zero-configuration Web Application** ready to be deployed directly to [Vercel](https://vercel.com).
+
+### 🚀 1-Click Deploy to Vercel
+1. Push this repository to your GitHub account:
+   ```bash
+   git add .
+   git commit -m "Add Vercel-ready web application"
+   git push origin main
+   ```
+2. Go to **[vercel.com](https://vercel.com)** and sign in.
+3. Click **"Add New..." > "Project"**.
+4. Import your repository (`Blood-Bank-Management-System`).
+5. Click **"Deploy"** (no build settings or environment variables required — Vercel detects `vercel.json` & `index.html` automatically).
+6. Your live web app URL will be generated instantly (e.g. `https://blood-bank-management-system.vercel.app`)!
+
+### 🔑 Demo Credentials
+- **Username:** `admin`
+- **Password:** `admin123`
+*(A convenient "Auto-fill" button is also provided on the login page)*
+
+### 💻 Running the Web App Locally
+You can test the web app locally with any browser:
+- **Option 1 (Directly):** Double-click [index.html](file:///c:/Users/Kashish%20tomar/OneDrive/Desktop/BloodBankManagementSystem/index.html) in your file manager to open it in Chrome, Edge, or Firefox.
+- **Option 2 (Local Server via Python):**
+  ```bash
+  python -m http.server 3000
+  ```
+  Then open `http://localhost:3000` in your browser.
+
+---
+
 
 ## 1. Project Abstract
 
