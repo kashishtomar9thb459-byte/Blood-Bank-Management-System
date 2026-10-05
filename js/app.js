@@ -53,75 +53,8 @@ class BloodBankApp {
   }
 
   init() {
-    this.checkAuth();
     this.setupEventListeners();
     this.handleRoute();
-  }
-
-  // ==========================================
-  // Authentication & Session
-  // ==========================================
-  checkAuth() {
-    const savedUser = sessionStorage.getItem("bbms_user");
-    if (savedUser) {
-      try {
-        this.currentUser = JSON.parse(savedUser);
-        this.updateUserUI();
-        document.getElementById("loginOverlay").style.display = "none";
-      } catch (e) {
-        this.showLogin();
-      }
-    } else {
-      this.showLogin();
-    }
-  }
-
-  showLogin() {
-    this.currentUser = null;
-    sessionStorage.removeItem("bbms_user");
-    document.getElementById("loginOverlay").style.display = "flex";
-  }
-
-  updateUserUI() {
-    if (this.currentUser) {
-      document.getElementById("navUserName").textContent = this.currentUser.name || this.currentUser.username;
-      document.getElementById("navUserRole").textContent = "Administrator";
-    }
-  }
-
-  handleLogin(e) {
-    e.preventDefault();
-    const userField = document.getElementById("loginUsername");
-    const passField = document.getElementById("loginPassword");
-    const username = userField.value.trim();
-    const password = passField.value;
-
-    const user = window.db.authenticate(username, password);
-    if (user) {
-      this.currentUser = user;
-      sessionStorage.setItem("bbms_user", JSON.stringify(user));
-      this.updateUserUI();
-      document.getElementById("loginOverlay").style.display = "none";
-      userField.value = "";
-      passField.value = "";
-      this.showToast("Welcome Back!", `Logged in as ${user.username}`, "success");
-      this.renderCurrentView();
-    } else {
-      this.showToast("Authentication Failed", "Invalid username or password. Try demo login: admin / admin123", "error");
-    }
-  }
-
-  handleLogout() {
-    this.showConfirm(
-      "Confirm Logout",
-      "Are you sure you want to sign out from the Blood Bank Management System?",
-      () => {
-        sessionStorage.removeItem("bbms_user");
-        this.currentUser = null;
-        this.showLogin();
-        this.showToast("Signed Out", "You have been logged out safely.", "info");
-      }
-    );
   }
 
   // ==========================================
@@ -130,27 +63,6 @@ class BloodBankApp {
   setupEventListeners() {
     // Hash routing
     window.addEventListener("hashchange", () => this.handleRoute());
-
-    // Login form
-    const loginForm = document.getElementById("loginForm");
-    if (loginForm) {
-      loginForm.addEventListener("submit", (e) => this.handleLogin(e));
-    }
-
-    // Auto-fill demo credentials button
-    const autofillBtn = document.getElementById("autofillDemoBtn");
-    if (autofillBtn) {
-      autofillBtn.addEventListener("click", () => {
-        document.getElementById("loginUsername").value = "admin";
-        document.getElementById("loginPassword").value = "admin123";
-      });
-    }
-
-    // Logout
-    const logoutBtn = document.getElementById("logoutBtn");
-    if (logoutBtn) {
-      logoutBtn.addEventListener("click", () => this.handleLogout());
-    }
 
     // Mobile sidebar toggle
     const mobileMenuBtn = document.getElementById("mobileMenuBtn");

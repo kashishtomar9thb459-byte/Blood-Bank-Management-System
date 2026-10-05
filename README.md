@@ -22,11 +22,6 @@ This project includes a **fully responsive, zero-configuration Web Application**
 5. Click **"Deploy"** (no build settings or environment variables required — Vercel detects `vercel.json` & `index.html` automatically).
 6. Your live web app URL will be generated instantly (e.g. `https://blood-bank-management-system.vercel.app`)!
 
-### 🔑 Demo Credentials
-- **Username:** `admin`
-- **Password:** `admin123`
-*(A convenient "Auto-fill" button is also provided on the login page)*
-
 ### 💻 Running the Web App Locally
 You can test the web app locally with any browser:
 - **Option 1 (Directly):** Double-click [index.html](file:///c:/Users/Kashish%20tomar/OneDrive/Desktop/BloodBankManagementSystem/index.html) in your file manager to open it in Chrome, Edge, or Firefox.
